@@ -13,7 +13,9 @@ if(NOT ANDROID)
 else()
 find_package(Boost REQUIRED)
 endif()
-find_package(OpenCV 3 REQUIRED
+#if needed, specify your opencv path here:
+#set(OpenCV_DIR /usr/share/opencv4)
+find_package(OpenCV 4 REQUIRED
   COMPONENTS
     opencv_core
     opencv_imgproc
@@ -32,6 +34,7 @@ catkin_package(
 catkin_python_setup()
 
 include_directories(include ${Boost_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS})
+#include_directories(include ${Boost_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS} ${catkin_INCLUDE_DIRS} "/usr/include/python3.6m/")
 
 if(NOT ANDROID)
 add_subdirectory(python)
